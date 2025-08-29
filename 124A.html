@@ -1,0 +1,41 @@
+<!-- Oppgave 124A:
+ 
+Lag en funksjon til bruk i handlekurven i en nettbutikk. Funksjonen skal lage teksten til en av "ordrelinjene". Som parameter tar funksjonen varens navn, varens pris og antall varer. Gitt verdiene 'Tastatur', 129, 3 skal funksjonen returnere teksten 3 stk. Tastatur a 129kr = 387kr. -->
+
+<script>
+
+// Ordrelinje med varenavn, pris og antall
+function orderLine(product, price, amount) {
+    // Variabel med totalpris, gangefunksjon
+    let priceTotal = price * amount;
+    // Funksjonen returnerer denne stringen
+    return `${amount} stk. ${product} a ${price}kr = ${priceTotal}kr.`;
+}
+
+// Handlekurv
+let shoppingCart = [
+  { product: "Tastatur", price: 129, amount: 3 },
+  { product: "Datamus", price: 50, amount: 2 }
+  // ... flere produkter
+];
+
+// Variabel for å lagre resultatet av lopp-funksjonen i tomt array
+let results = [];
+
+// Loop-funksjon, henter ut info fra handlekurv
+// Knyttet sammen med orderLine()
+for(let i = 0; i < shoppingCart.length; i++) {
+
+  let item = shoppingCart[i];
+
+  //Kaller funksjonen med verdiene fra handlekurven
+  let string = orderLine(item.product, item.price, item.amount);
+  results.push(string);
+  //Resultatet blir pushet inn i results variabelen
+}
+
+// Logger resultatet i konsollen
+// Husk å bruke console.log i samme scope
+console.log(results)
+
+</script>
